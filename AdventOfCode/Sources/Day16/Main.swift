@@ -3,12 +3,12 @@ import ArgumentParser
 import Foundation
 
 @main
-struct Main: ParsableCommand {
+struct Main: AsyncParsableCommand {
     @Option
     var part: String?
 
-    func run() throws {
+    func run() async throws {
         let solver = try Solver<Day16>(bundle: Bundle.module)
-        solver.solve(day: Day16(), part: Part(value: part))
+        await solver.solve(day: Day16(), part: Part(value: part))
     }
 }
